@@ -1,0 +1,42 @@
+{% extends "layout/base.html" %}
+{% load static %}
+{% block title %} Login Page {% endblock title %}
+{% block content %}
+
+<div class="mt-5">
+    <div class="card mx-auto" style="width:23rem;">
+        <div class="card-header h3 bg-secondary text-white text-center">Login</div>
+
+        {% if error_message %}
+        <div class="alert alert-primary alert-dismissible fade show"role="alert">
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            <strong>{{ error_message }}</strong>
+        </div>
+
+        {% endif %}
+        
+        <form method="POST" action='{% url 'loginpage' %}'>
+            {% csrf_token %}
+            <div class="card-body">
+                <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Username</label>
+                <input type="text" class="form-control"  name="username" value="{{ auto_fill_username }}">
+                </div>
+                <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Password</label>
+                <input type="password" class="form-control" name="password">
+                </div>
+                <div class="mb-3">
+                    <input type="checkbox" name="remember_me" id="remember_me">
+                    <label for="remember_me">Remember Me</label>
+                </div>
+            </div>
+            <div class="card-footer">
+                <button type="submit" class="btn btn-success w-100">Login</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+{% endblock content %}

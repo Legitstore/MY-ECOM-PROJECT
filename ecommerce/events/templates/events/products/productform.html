@@ -1,0 +1,165 @@
+{% extends "layout/base.html" %}
+{% load static %}
+{% block title %} Product Form Page {% endblock title %}
+{% block content %}
+
+
+
+<div class="container-lg py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-6">
+            <h1 class="display-6">Collections Form</h1>
+            <div class="shadow p-3">
+                <form class="row g-3 needs-validation" novalidate action="" method="POST">
+                    {% csrf_token %}
+                    
+                    <div class="col-md-6">
+                      <label  class="">Slug</label>
+                      {{ cateform.slug }}
+                    </div>
+                    <div class="col-md-6">
+                      <label  class="">Name</label>
+                      {{ cateform.name }}
+                    </div>
+                    <div class="col-md-6">
+                      {{ cateform.image }}
+                    </div>
+                    <div class="col-md-3 pt-2">
+                        <label  class="">Trending</label>
+                        {{ cateform.trending }}
+                    </div>
+                    <div class="col-md-3 pt-2">
+                        <label  class="">Status</label>
+                        {{ cateform.status }}
+                    </div>
+                    <div class="col-md-12">
+                        <label  class="">Description</label>
+                        {{ cateform.descript }}
+                    </div>
+                    
+                    <div class="col-12">
+                      <button class="btn btn-secondary" type="submit">Submit form</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <h1 class="display-6">Product Form</h1>
+            <div class="shadow p-3">
+                
+                <form method="POST" enctype="multipart/form-data" class="row g-3 needs-validation" novalidate action="" >
+                    {% csrf_token %}
+
+                    <div class="col-md-6">
+                      <label  class="">Category</label>
+                      {{ form.category }}
+                      {% if form.errors.category %}
+                          <label for="" class="text-danger">{{ form.errors.category }}</label>
+                      {% endif %}
+                    </div>
+                    <div class="col-md-6">
+                      <label  class="">Slug</label>
+                      {{ form.slug }}
+                      {% if form.errors.slug %}
+                          <label for="" class="text-danger">{{ form.errors.slug }}</label>
+                      {% endif %}
+                    </div>
+                    <div class="col-md-12">
+                      <label  class="">Name</label>
+                      {{ form.name }}
+                      {% if form.errors.name %}
+                          <label for="" class="text-danger">{{ form.errors.name }}</label>
+                      {% endif %}
+                    </div>
+                    <div class="col-md-6">
+                      {{ form.product_image }}
+                      {% if form.errors.product_image %}
+                          <label for="" class="text-danger">{{ form.errors.product_image }}</label>
+                      {% endif %}
+                    </div>
+                    <div class="col-md-6">
+                      {{ form.product_image1 }}
+                      {% if form.errors.product_image1 %}
+                          <label for="" class="text-danger">{{ form.errors.product_image1 }}</label>
+                      {% endif %}
+                    </div>
+                    <div class="col-md-6">
+                      {{ form.product_image2}}
+                      {% if form.errors.product_image2 %}
+                          <label for="" class="text-danger">{{ form.errors.product_image2 }}</label>
+                      {% endif %}
+                    </div>
+                    <div class="col-md-6">
+                      {{ form.product_image3 }}
+                      {% if form.errors.product_image3 %}
+                          <label for="" class="text-danger">{{ form.errors.product_image3 }}</label>
+                      {% endif %}
+                    </div>
+                    <div class="col-md-6">
+                      <label  class="">Small Description</label>
+                      {{ form.small_descript }}
+                      {% if form.errors.small_descript %}
+                          <label for="" class="text-danger">{{ form.errors.small_descript }}</label>
+                      {% endif %}
+                    </div>
+                    <div class="col-md-6">
+                      <label  class="">Quantity</label>
+                      {{ form.quantity }}
+                      {% if form.errors.quantity %}
+                          <label for="" class="text-danger">{{ form.errors.quantity }}</label>
+                      {% endif %}
+                    </div>
+                    <div class="col-md-3">
+                      <label  class="">Original Price</label>
+                      {{ form.original_price }}
+                      {% if form.errors.original_price %}
+                          <label for="" class="text-danger">{{ form.errors.original_price }}</label>
+                      {% endif %}
+                    </div>
+                    <div class="col-md-3">
+                      <label  class="">Selling Price</label>
+                      {{ form.selling_price }}
+                      {% if form.errors.selling_price %}
+                          <label for="" class="text-danger">{{ form.errors.selling_price }}</label>
+                      {% endif %}
+                    </div>
+                    <div class="col-md-3 mt-5 pt-2">
+                        <label  class="">Trending</label>
+                        {{ form.trending }}
+                        {% if form.errors.trending %}
+                          <label for="" class="text-danger">{{ form.errors.trending }}</label>
+                      {% endif %}
+                    </div>
+                    <div class="col-md-3 mt-5 pt-2">
+                        <label  class="">Status</label>
+                        {{ form.status }}
+                        {% if form.errors.status %}
+                          <label for="" class="text-danger">{{ form.errors.status }}</label>
+                      {% endif %}
+                    </div>
+                    <div class="col-md-12">
+                        <label  class="">Tag</label>
+                        {{ form.tag }}
+                        {% if form.errors.tag %}
+                          <label for="" class="text-danger">{{ form.errors.tag }}</label>
+                        {% endif %}
+                    </div>
+                    <div class="col-md-12">
+                        <label  class="">Description</label>
+                        {{ form.descript }}
+                        {% if form.errors.descript %}
+                          <label for="" class="text-danger">{{ form.errors.descript }}</label>
+                      {% endif %}
+                    </div>
+                    
+                    <div class="col-12">
+                      <button class="btn btn-success" type="submit">Submit form</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div> 
+
+
+{% endblock content %}

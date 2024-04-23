@@ -1,0 +1,13 @@
+
+
+
+.products img,
+.collections img{
+    height: 180px;
+}
+
+
+.products:hover,
+.collections:hover{
+    border: 2px solid #ddd;
+}
